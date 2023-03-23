@@ -1,0 +1,42 @@
+require("dotenv").config();
+const express = require("express");
+const cors = require('cors');
+const mongoose = require("mongoose");
+const postsRoutes = require("./routes/posts");
+
+// express app
+const app = express();
+
+// middleware logger
+app.use(express.json());
+
+// CORS
+app.use(cors({
+    origin: process.env.WHITELIST_URL, credentials: true 
+}));
+
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+});
+
+// routes
+app.use("/api/posts", postsRoutes);
+
+// connect to DB
+mongoose
+    .set("strictQuery", false)
+    .connect(process.env.MONG_URI)
+    .then(() => {
+        // listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log(
+                "\n<<< connected to MongoDB Atlas DB blogmvp and listening on port",
+                process.env.PORT,
+                ">>>\n"
+            );
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+    });

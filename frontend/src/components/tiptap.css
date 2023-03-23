@@ -1,0 +1,96 @@
+.menu-bar {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: -webkit-sticky; */
+}
+
+.editorButtons {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.editorButtons button {
+    background-color: var(--itemBackgroundLight);
+    border: 1px solid var(--primary);
+    border-radius: 0.2rem;
+    color: var(--primary);
+    font-size: 0.75rem;
+    padding: 0.25rem;
+    line-height: 5px;
+}
+
+.editorButtons button:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.editorButtons button.is-active {
+    background-color: grey;
+}
+
+/* Basic editor styles */
+.ProseMirror {
+    padding: 0 0.35rem;
+    border: 1px solid var(--primary);
+    background-color: var(--itemBackgroundLight);
+    border-radius: 0.2rem;
+    min-height: 100px;
+    max-height: 16.5rem;
+    overflow-y: auto;
+    font-size: 0.65rem;
+}
+
+.ProseMirror > * + * {
+    margin-top: 8rem;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+    padding: 0 1rem;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+    line-height: 1.1;
+}
+
+.ProseMirror code {
+    background-color: #bbbbbb;
+    color: #616161;
+}
+
+.ProseMirror pre {
+    background: #0d0d0d;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.ProseMirror pre code {
+    color: inherit;
+    padding: 0;
+    background: none;
+    font-size: 0.8rem;
+    border: 1px solid black;
+}
+
+.ProseMirror img {
+    max-width: 100%;
+}
+
+.ProseMirror blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid #7e7e7e;
+}
+
+.ProseMirror hr {
+    border: none;
+    border-top: 2px solid #7e7e7e;
+    margin: 2rem 0;
+}
