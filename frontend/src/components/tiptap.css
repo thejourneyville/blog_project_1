@@ -27,7 +27,9 @@
 }
 
 .editorButtons button.is-active {
-    background-color: grey;
+    box-shadow: inset 0px 0px 1px 1px var(--secondary);
+    background-color: white;
+    color: var(--primary);
 }
 
 /* Basic editor styles */
@@ -40,6 +42,11 @@
     max-height: 16.5rem;
     overflow-y: auto;
     font-size: 0.65rem;
+}
+
+/* this keeps spacing between paragraphs clean */
+.ProseMirror p:nth-child(n+1) {
+    margin-bottom: -7.4rem;
 }
 
 .ProseMirror > * + * {

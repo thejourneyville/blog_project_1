@@ -7,6 +7,7 @@ export const UpdateContextProvider = ({ children }) => {
     const [updateData, setUpdateData] = useState("");
 
     const populateEditor = (id, author, title, body) => {
+        console.log(body);
         setUpdateData({
             id: id,
             author: author,
