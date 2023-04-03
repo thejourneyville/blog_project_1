@@ -17,16 +17,14 @@ const userSchema = new Schema({
 });
 
 // static signup method
-userSchema.statics.signup = async function(userName, password) {
-
-
+userSchema.statics.signup = async function (userName, password) {
     // validation
     if (!userName || !password) {
-        throw Error('All fields must be filled');
+        throw Error("All fields must be filled");
     }
 
     if (!validator.isStrongPassword(password)) {
-        throw Error('Password not strong enough')
+        throw Error("Password not strong enough");
     }
 
     const exists = await this.findOne({ userName });
@@ -41,6 +39,28 @@ userSchema.statics.signup = async function(userName, password) {
     const hash = await bcrypt.hash(password, salt);
     // stores in database
     const user = await this.create({ userName, password: hash });
+
+    return user;
+};
+
+// static login method
+userSchema.statics.login = async function (userName, password) {
+    // validation
+    if (!userName || !password) {
+        throw Error("All fields must be filled");
+    }
+
+    const user = await this.findOne({ userName });
+
+    if (!user) {
+        throw Error("username doesn't exist in database");
+    }
+
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+        throw Error("Incorrect password");
+    }
 
     return user;
 };
