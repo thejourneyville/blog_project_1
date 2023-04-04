@@ -10,7 +10,7 @@ const Signup = () => {
     };
 
     return (
-        <div className="cardContainer loginContainer">
+        <div className="loginSignupContainer">
             <form onSubmit={handleSubmit}>
                 <h5 className="cardAuthor">Sign Up</h5>
                 <input

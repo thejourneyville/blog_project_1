@@ -10,7 +10,7 @@ const Login = () => {
     };
 
     return (
-        <div className="cardContainer loginContainer">
+        <div className="loginSignupContainer">
             <form onSubmit={handleSubmit}>
                 <h5 className="cardAuthor">Log in</h5>
                 <input
@@ -33,7 +33,7 @@ const Login = () => {
                 />
             </form>
             {userName && userPassword && (
-                <button className="updateButton" onClick={handleSubmit}>
+                <button className="updateButton loginSignupButton" onClick={handleSubmit}>
                     Log in
                 </button>
             )}
