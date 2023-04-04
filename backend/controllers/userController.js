@@ -16,7 +16,7 @@ const loginUser = async (req, res) => {
         const token = createToken(user._id);
 
         // Create HttpOnly cookie containing the JWT token
-        res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 });
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 259200000 });
 
         res.status(200).json({ userName, token });
     } catch (error) {
