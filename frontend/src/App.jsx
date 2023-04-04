@@ -7,6 +7,8 @@ import { AuthContextProvider } from "./context/AuthContext";
 import PostEntryPage from "./pages/PostEntryPage";
 import DisplayPostsPage from "./pages/DisplayPostsPage";
 import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
     return (
@@ -18,6 +20,14 @@ function App() {
                             <Navbar />
                             <div className="pages">
                                 <Routes>
+                                    <Route
+                                        path="/login"
+                                        element={<Login />}
+                                    />
+                                    <Route
+                                        path="/signup"
+                                        element={<Signup />}
+                                    />
                                     <Route
                                         path="/post-entry"
                                         element={<PostEntryPage />}

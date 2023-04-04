@@ -10,6 +10,12 @@ const Navbar = () => {
                 <Link to="/post-entry">
                     <h5>post entry</h5>
                 </Link>
+                <Link to="/login">
+                    <h5>Login</h5>
+                </Link>
+                <Link to="/signup">
+                    <h5>Signup</h5>
+                </Link>
             </div>
         </header>
     );
