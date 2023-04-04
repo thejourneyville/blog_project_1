@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 const postsRoutes = require("./routes/posts");
 const userRoutes = require("./routes/user");
+const cookieParser = require("cookie-parser");
 
 // express app
 const app = express();
@@ -24,6 +25,9 @@ app.use((req, res, next) => {
 // routes
 app.use("/api/posts", postsRoutes);
 app.use("/api/user", userRoutes);
+
+// enable cookies
+app.use(cookieParser());
 
 // connect to DB
 mongoose
